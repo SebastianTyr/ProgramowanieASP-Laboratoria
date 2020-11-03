@@ -1,5 +1,55 @@
-﻿<h1>Company managment</h1>
+﻿@model CompanyModel
+
+<h1>Company managment</h1>
 
 <h2>Add new company</h2>
 
-<p>...</p>
+<div id="success-alert" class="alert alert-success" style="display: none">New Company added successfully!</div>
+
+@*@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, "Company name")
+        @Html.TextBoxFor(x => x.Name, new { @class = "from-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description, "description")
+        @Html.TextBoxFor(x => x.Description, new { @class = "from-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.CheckBoxFor(x => x.IsVisible, new { @class = "form-check-input"})
+        @Html.LabelFor(x => x.IsVisible, "Visible?", new { @class = "form-check-label"})
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add company</button>
+    </div>
+}*@
+
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="Name">Item name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <div class="form-check">
+        <input asp-for="IsVisible" class="form-check-input" />
+        <label asp-for="IsVisible" class="form-check-label">Item visible?</label>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Add new item" />
+    </div>
+
+</form>
+
+@section Scripts{ 
+    <script src="~/js/addNewItem.js"></script>
+}
