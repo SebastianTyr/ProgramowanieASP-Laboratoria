@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using NewBrandingStyle.Web.Databases;
 
 namespace NewBrandingStyle.Web
 {
@@ -23,6 +25,9 @@ namespace NewBrandingStyle.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<NewBrandingDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("NewBrandingStyle")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
