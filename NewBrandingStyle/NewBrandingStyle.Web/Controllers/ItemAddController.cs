@@ -4,6 +4,7 @@ using NewBrandingStyle.Web.Models;
 using NewBrandingStyle.Web.Filters;
 using NewBrandingStyle.Web.Databases;
 using NewBrandingStyle.Web.Entities;
+using System.Threading.Tasks;
 
 namespace NewBrandingStyle.Web.Controllers
 {
@@ -48,7 +49,8 @@ namespace NewBrandingStyle.Web.Controllers
             //};
 
             //return View("AddConfirmation", viewModel);
-            return RedirectToAction("AddConfirmation", new { itemId = 1 });
+            //return RedirectToAction("AddConfirmation", new { itemId = 1 });
+            return View("AddConfirmation", entity);
         }
 
         [HttpGet]

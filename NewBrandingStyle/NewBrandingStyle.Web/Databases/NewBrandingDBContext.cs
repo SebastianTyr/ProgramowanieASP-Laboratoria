@@ -14,10 +14,12 @@ namespace NewBrandingStyle.Web.Databases
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<ItemEntity>().Property(x => x.Id).IsRequired();
-            builder.Entity<ItemEntity>().Property(x => x.Name).HasColumnType("varchar");
-            builder.Entity<ItemEntity>().Property(x => x.Description).HasColumnType("varchar");
-            builder.Entity<ItemEntity>().Property(x => x.IsVisible).HasColumnType("bit");
+            builder.Entity<ItemEntity>().ToTable("Items");
+
+            //builder.Entity<ItemEntity>().Property(x => x.Id).IsRequired();
+            //builder.Entity<ItemEntity>().Property(x => x.Name).HasColumnType("varchar");
+            //builder.Entity<ItemEntity>().Property(x => x.Description).HasColumnType("varchar");
+            //builder.Entity<ItemEntity>().Property(x => x.IsVisible).HasColumnType("bit");
         }
     }
 }
