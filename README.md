@@ -9,6 +9,6 @@ Realizacja laboratoriów z Programowania w ASP.NET Core
 - implementacja AJAX
 - przesyłanie formularza za pomoca Fetch API
 
-##Laboratorium 3
+## Laboratorium 3
 - instalacja lokalnej bazy danych
 - implementacja entity framework core
