@@ -11,15 +11,11 @@ namespace NewBrandingStyle.Web.Databases
         }
 
         public DbSet<ItemEntity> Items { get; set; }
+        public DbSet<ProductsEntity> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<ItemEntity>().ToTable("Items");
-
-            //builder.Entity<ItemEntity>().Property(x => x.Id).IsRequired();
-            //builder.Entity<ItemEntity>().Property(x => x.Name).HasColumnType("varchar");
-            //builder.Entity<ItemEntity>().Property(x => x.Description).HasColumnType("varchar");
-            //builder.Entity<ItemEntity>().Property(x => x.IsVisible).HasColumnType("bit");
+            //fluent configuration
         }
     }
 }

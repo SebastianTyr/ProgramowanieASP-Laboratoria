@@ -38,6 +38,21 @@ namespace NewBrandingStyle.Web.Migrations
 
                     b.ToTable("Items");
                 });
+
+            modelBuilder.Entity("NewBrandingStyle.Web.Entities.ProductsEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
 #pragma warning restore 612, 618
         }
     }

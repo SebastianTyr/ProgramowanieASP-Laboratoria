@@ -9,7 +9,7 @@ using NewBrandingStyle.Web.Databases;
 namespace NewBrandingStyle.Web.Migrations
 {
     [DbContext(typeof(NewBrandingDBContext))]
-    [Migration("20201123224404_Initial")]
+    [Migration("20201124220203_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,21 @@ namespace NewBrandingStyle.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("NewBrandingStyle.Web.Entities.ProductsEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
                 });
 #pragma warning restore 612, 618
         }

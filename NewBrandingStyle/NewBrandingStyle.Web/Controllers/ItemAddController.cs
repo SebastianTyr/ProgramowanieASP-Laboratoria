@@ -42,21 +42,14 @@ namespace NewBrandingStyle.Web.Controllers
             _dbContext.Items.Add(entity);
             _dbContext.SaveChanges();
 
-            //var viewModel = new AddNewItemConfimation
-            //{
-            //    Id = 1,
-            //    Name = item.Name,
-            //};
-
-            //return View("AddConfirmation", viewModel);
-            //return RedirectToAction("AddConfirmation", new { itemId = 1 });
-            return View("AddConfirmation", entity);
+            return RedirectToAction("AddConfirmation");
         }
 
         [HttpGet]
-        public IActionResult AddConfirmation(int itemId)
+        public IActionResult AddConfirmation()
         {
-            return View(itemId);
+            ViewBag.Items = _dbContext.Items;
+            return View();
         }
     }
 }

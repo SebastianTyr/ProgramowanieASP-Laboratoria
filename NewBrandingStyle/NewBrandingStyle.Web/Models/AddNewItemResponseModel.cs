@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace NewBrandingStyle.Web.Models
 {
-    public class AddNewItemConfimation
+    public class AddNewItemResponseModel
     {
-        public int Id { get;  internal set; }
-        public string Name { get;  internal set; }
+        public bool succes { get; set; }
+        public string message { get; set; }
     }
 }
