@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using NewBrandingStyle.Web.Databases;
+
+namespace NewBrandingStyle.Web.ViewComponents
+{
+    public class LatestItem : ViewComponent
+    {
+        private readonly NewBrandingDBContext _dbContext;
+
+        public LatestItem(NewBrandingDBContext dBContext)
+        {
+            _dbContext = dBContext;
+        }
+
+        public IViewComponentResult Invoke()
+        {
+            var latestItem = _dbContext.Items.OrderByDescending(x => x.Id).First();
+
+            return View("Index", latestItem);
+        }
+    }
+}
