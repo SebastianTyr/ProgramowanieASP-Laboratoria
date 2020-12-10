@@ -10,6 +10,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using NewBrandingStyle.Web.Databases;
 using Microsoft.AspNetCore.Diagnostics;
+using NewBrandingStyle.Web.Models.Validation;
+using NewBrandingStyle.Web.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using NewBrandingStyle.Web.Filters;
 
 namespace NewBrandingStyle.Web
 {
@@ -25,10 +30,17 @@ namespace NewBrandingStyle.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(config =>
+            {
+                config.Filters.Add<MyCustomFilter>();
+            }).AddFluentValidation();
+
+            services.AddTransient<IValidator<ItemModel>, ItemModelValidator>();
 
             services.AddDbContext<NewBrandingDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NewBrandingStyle")));
+
+            services.AddTransient<MyCustomFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
